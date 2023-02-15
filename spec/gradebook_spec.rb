@@ -7,6 +7,10 @@ RSpec.describe Gradebook do
     @course1 = Course.new("Calculus", 2)
     @course2 = Course.new('Biology', 3)
     @gradebook = Gradebook.new('Professor Plum') 
+
+    @course1.enroll(@student1)
+    @course1.enroll(@student2)
+    @course2.enroll(@student1)
   end
 
   describe '#initialize' do
@@ -34,10 +38,6 @@ RSpec.describe Gradebook do
 
   describe '#list_all_students' do
     it 'lists each course its students enrolled' do
-      @course1.enroll(@student1)
-      @course1.enroll(@student2)
-      @course2.enroll(@student1)
-
       @gradebook.add_course(@course1)
       @gradebook.add_course(@course2)
 
@@ -48,13 +48,14 @@ RSpec.describe Gradebook do
   end
 
   describe '#students_below' do
-    # it 'returns students with grade below given threshold' do
-    #   @course1.enroll(@student1)
-    #   @course1.enroll(@student2)
-    #   @course2.enroll(@student1)
+    it 'returns students with grade below given threshold' do
+      @gradebook.add_course(@course1)
+      @gradebook.add_course(@course2)
 
-    #   @gradebook.add_course(@course1)
-    #   @gradebook.add_course(@course2)
-    # end
+      @student1.log_score(65)
+      @student2.log_score(98)
+
+      expect(students_below(70)).to eq([@student1])
+    end
   end
 end
