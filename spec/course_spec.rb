@@ -2,13 +2,24 @@ require 'spec_helper'
 
 RSpec.describe Course do
   before(:each) do
+    @course = Course.new("Calculus", 2) 
   end
 
   describe '#initialize' do
     it 'exists' do
-      course = Course.new("Calculus", 2) 
+      expect(@course).to be_instance_of(Course)
+    end
 
-      expect(course).to be_instance_of(Course)
+    it 'has a name' do
+      expect(@course.name).to eq('Calculus')
+    end
+
+    it 'has a capacity' do
+      expect(@course.capacity).to eq 2
+    end
+
+    it 'has no students by default' do
+      expect(@course.students).to eq([])
     end
   end
 end
