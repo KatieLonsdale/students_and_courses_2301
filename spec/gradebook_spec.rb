@@ -55,7 +55,7 @@ RSpec.describe Gradebook do
       @student1.log_score(65)
       @student2.log_score(98)
 
-      expect(students_below(70)).to eq([@student1])
+      expect(@gradebook.students_below(70)).to eq([@student1])
     end
   end
 end
