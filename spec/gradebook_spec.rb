@@ -43,7 +43,18 @@ RSpec.describe Gradebook do
 
       expect(@gradebook.list_all_students).to be_instance_of Hash
       expect(@gradebook.list_all_students).
-      to eq({@course1: [@student1, @student2], @course2: [@student1]})
+      to eq({@course1 => [@student1, @student2], @course2 => [@student1]})
     end
+  end
+
+  describe '#students_below' do
+    # it 'returns students with grade below given threshold' do
+    #   @course1.enroll(@student1)
+    #   @course1.enroll(@student2)
+    #   @course2.enroll(@student1)
+
+    #   @gradebook.add_course(@course1)
+    #   @gradebook.add_course(@course2)
+    # end
   end
 end
