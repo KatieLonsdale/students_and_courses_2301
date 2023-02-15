@@ -22,4 +22,13 @@ RSpec.describe Gradebook do
       expect(@gradebook.courses).to eq([])
     end
   end
+
+  describe '#add_course' do
+    it 'adds a course to course attribute' do
+      @gradebook.add_course(@course1)
+
+      expect(@gradebook.courses).to eq([@course1])
+      expect(@gradebook.courses.count).to eq 1
+    end
+  end
 end
