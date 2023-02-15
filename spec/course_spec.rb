@@ -25,7 +25,7 @@ RSpec.describe Course do
 
   describe '#full?' do
     it 'returns whether a course is full or not' do
-      expect(course.full?).to be false
+      expect(@course.full?).to be false
     end
   end
 end
