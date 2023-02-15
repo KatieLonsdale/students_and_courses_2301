@@ -14,7 +14,7 @@ RSpec.describe Student do
     end
 
     it 'has an age' do
-      expect(@student.name).to eq 21
+      expect(@student.age).to eq 21
     end
   end
 end
