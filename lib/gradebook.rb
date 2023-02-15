@@ -16,4 +16,9 @@ class Gradebook
     @courses.each{|course| roster[course] = course.students}
     roster
   end
+
+  def students_below(threshold)
+    list_all_students.map{|course, students| students.
+    select{|student| student.grade < threshold}}.uniq[0]
+  end
 end
